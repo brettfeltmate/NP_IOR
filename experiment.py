@@ -321,18 +321,20 @@ class NP_IOR(klibs.Experiment):
 
     def present_feedback(self, prime_correct, prime_rt, probe_correct, probe_rt):
 
-        prime_fb = prime_rt if prime_correct else 'WRONG'
-        probe_fb = probe_rt if probe_correct else 'WRONG'
+        prime_fb = int(prime_rt) if prime_correct else 'WRONG'
+        probe_fb = int(probe_rt) if probe_correct else 'WRONG'
 
         fb_txt = "{0}\n{1}".format(prime_fb, probe_fb)
 
         fb = message(fb_txt, align='center', blit_txt=False)
 
-        countdown = CountDown(1)
-        while countdown.counting():
-            fill()
-            blit(fb, location=P.screen_c, registration=5)
-            flip()
+        fill()
+        blit(fb, location=P.screen_c, registration=5)
+        flip()
+
+        while True:
+            if key_pressed(key=sdl2.SDLK_SPACE):
+                break
 
 
 
