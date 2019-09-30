@@ -492,7 +492,8 @@ class NP_IOR(klibs.Experiment):
 
         txt = ("Once you have made both responses, you will be provided with feedback,\n"
                "the upper and lower line referring to your performance\n"
-               "in the first and second display, respectively.\n")
+               "in the first and second display, respectively.\n"
+               "Please press spacebar to skip past the feedback display")
 
         instruction_msg = message(txt, align='center', blit_txt=False)
 
